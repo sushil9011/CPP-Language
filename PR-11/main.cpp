@@ -5,17 +5,17 @@ using namespace std;
 int main()
 {
     StudentSystem<int, string> system1;
-    int choice, sid;
-    string sname;
+    int choice, student_id_data;
+    string student_name;
 
     do
     {
-        cout << "\n===== Student Management Menu =====\n";
-        cout << "1. Insert Student\n";
-        cout << "2. Show All Students\n";
-        cout << "3. Search Student\n";
-        cout << "4. Delete Student\n";
-        cout << "0. Exit\n";
+        cout << endl << "== Student Management Menu ==" << endl;
+        cout << "1. Insert Student" << endl;
+        cout << "2. Show All Students" << endl;
+        cout << "3. Search Student" << endl;
+        cout << "4. Delete Student" << endl;
+        cout << "0. Exit" << endl;
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -23,11 +23,11 @@ int main()
         {
         case 1:
             cout << "Enter Student ID: ";
-            cin >> sid;
+            cin >> student_id_data;
             cin.ignore();
             cout << "Enter Student Name: ";
-            getline(cin, sname);
-            system1.insertStudent(sid, sname);
+            getline(cin, student_name);
+            system1.insertStudent(student_id_data, student_name);
             break;
 
         case 2:
@@ -36,22 +36,22 @@ int main()
 
         case 3:
             cout << "Enter ID to search: ";
-            cin >> sid;
-            system1.findStudent(sid);
+            cin >> student_id_data;
+            system1.findStudent(student_id_data);
             break;
 
         case 4:
             cout << "Enter ID to delete: ";
-            cin >> sid;
-            system1.deleteStudent(sid);
+            cin >> student_id_data;
+            system1.deleteStudent(student_id_data);
             break;
 
         case 0:
-            cout << "Exiting program...\n";
+            cout << "Exiting program..." << endl;
             break;
 
         default:
-            cout << "Invalid choice! Try again.\n";
+            cout << "Invalid choice! Try again." << endl;
         }
     } while (choice != 0);
 

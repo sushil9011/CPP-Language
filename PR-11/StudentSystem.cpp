@@ -1,74 +1,70 @@
 #include <iostream>
 #include <vector>
-#include <string.h>   
+#include <string.h>
 using namespace std;
 
 template <typename Tid, typename Tname>
 class StudentSystem
 {
 private:
-    vector<Tid> ids;
+    vector<Tid> id;
     vector<Tname> names;
 
 public:
-    // Add new student
-    void insertStudent(Tid sid, Tname sname)
+    void insertStudent(Tid student_id_data, Tname student_name)
     {
-        for (size_t i = 0; i < ids.size(); i++)
+        for (size_t i = 0; i < id.size(); i++)
         {
-            if (ids[i] == sid)
+            if (id[i] == student_id_data)
             {
-                cout << "ID already exists!\n";
+                cout << "ID already exists!" << endl;
                 return;
             }
         }
-        ids.push_back(sid);
-        names.push_back(sname);
-        cout << "Student inserted successfully!\n";
+        id.push_back(student_id_data);
+        names.push_back(student_name);
+        cout << "Student inserted successfully!" << endl;
     }
 
-    // Show all students
     void showStudents()
     {
-        if (ids.empty())
+        if (id.empty())
         {
-            cout << "No student records found.\n";
+            cout << "No student records found." << endl;
             return;
         }
-        cout << "\n--- Student List ---\n";
-        for (size_t i = 0; i < ids.size(); i++)
+        cout << endl << "--- Student List ---" << endl;
+        for (size_t i = 0; i < id.size(); i++)
         {
-            cout << "ID : " << ids[i] << " | Name : " << names[i] << endl;
+            cout << "ID : " << id[i] << " | Name : " << names[i] << endl;
         }
     }
 
-    // Search by ID
-    void findStudent(Tid sid)
+    void findStudent(Tid student_id_data)
     {
-        for (size_t i = 0; i < ids.size(); i++)
+        for (size_t i = 0; i < id.size(); i++)
         {
-            if (ids[i] == sid)
+            if (id[i] == student_id_data)
             {
-                cout << "Found → ID: " << ids[i] << " | Name: " << names[i] << endl;
+                cout << "Found  ID: " << id[i] << " | Name: " << names[i] << endl;
                 return;
             }
         }
-        cout << "Student not found!\n";
+        cout << "Student not found!" << endl;
     }
 
-    // Delete by ID
-    void deleteStudent(Tid sid)
+    void deleteStudent(Tid student_id_data)
     {
-        for (size_t i = 0; i < ids.size(); i++)
+        for (size_t i = 0; i < id.size(); i++)
         {
-            if (ids[i] == sid)
+            if (id[i] == student_id_data)
             {
-                ids.erase(ids.begin() + i);
+                id.erase(id.begin() + i);
                 names.erase(names.begin() + i);
-                cout << "Record deleted successfully!\n";
+                cout << "Deleted successfully!" << endl;
                 return;
             }
         }
-        cout << "Student not found!\n";
+        cout << "Student not found!" << endl;
     }
 };
